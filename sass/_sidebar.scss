@@ -1,0 +1,47 @@
+.sidebar {
+  background-color: $color-primary;
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1;
+  display: flex;
+  justify-content: center;
+  @include respond(medium) {
+    grid-column: 1 / -1;
+    grid-row: 1/ 2;
+    justify-content: start;
+    align-items: center;
+  }
+  &:hover > &__btn:after {
+    transform: translateY(1.3rem);
+  }
+  &:hover > &__btn:before {
+    transform: translateY(-1.5rem);
+  }
+  &__btn {
+    border: none;
+    border-radius: 0;
+    width: 4rem;
+    height: 0.2rem;
+    background-color: #fff;
+    margin-top: 4rem;
+    @include respond(medium) {
+      margin-left: 2rem;
+      margin-top: 0rem;
+    }
+    &::after,
+    &::before {
+      transition: 0.2s all;
+      width: 4rem;
+      height: 0.2rem;
+      content: "";
+      background-color: #fff;
+      display: block;
+    }
+
+    &::after {
+      transform: translateY(1.1rem);
+    }
+    &::before {
+      transform: translateY(-1.3rem);
+    }
+  }
+}
